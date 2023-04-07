@@ -1,0 +1,39 @@
+{% extends "expenses.html" %}
+{% block content %}
+<form method="POST">
+    {{ form.csrt_token}}
+  <table class="form">
+    <tr>
+      <td>{{ form.expense.label}}</td>
+      <td>{{form.expense}} {{form.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ form.date.label}}</td>
+    <td>{{form.date(class='datepicker')}} {{form.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ form.category.label}}</td>
+    <td>{{form.category}} {{form.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ form.note.label}}</td>
+    <td>{{form.note}} {{form.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ form.currency.label}}</td>
+    <td>{{form.currency}} {{form.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ form.amount.label}}</td>
+    <td>{{form.amount}} {{form.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>
+    <p>
+        {{form.submit()}}
+    </p>
+    </td>
+  </tr>
+  </table>
+</form>
+{% endblock %}

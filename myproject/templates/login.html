@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<!-- https://epicbootstrap.com/snippets/registration -->
+<div class="registration-form">
+<div class="container">
+  <div class="form-icon">
+    <span>{{ render_icon('person-fill',size='60px',title=None, desc=None) }}</span>
+</div>
+  <div class="login_nav">
+    <ul class="ul_links" id="reg_ul">
+        <li class="signin-active"><button class="link" id="btn1">Register</button></li>
+        <li class="signup-inactive"><button class="link" id="btn2">Login</button></li>
+    </ul>
+</div>
+<div class="forms" id="forms">
+<div class="forms_elements" id="registration">
+  <form class="registration" action="{{ url_for('views.successful')}}" method="post">
+    <div class="form-group">
+      <input type="text" class="form-control item" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control item" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control item" name="pno" placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control item" name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control item" name="c_password" placeholder="Confirm Password">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">Create Account</button>
+    </div>
+  </form>
+</div>
+<div class="forms_elements" id="login_form">
+  <form class="login" action="{{ url_for('views.user')}}" method="post">
+    <div class="form-group">
+        <input type="text" class="form-control item" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control item" name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">Login</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

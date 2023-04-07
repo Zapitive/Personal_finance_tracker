@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Guest{% endblock %}
+{% block content %}
+<form action="{{ url_for('views.actions')}}" method="POST">
+  <div class="expenses_actions">
+    <button type="Add" class="option" value="Add" name="action1">ADD</button>
+    <button type="view" class="option" value="View" name="action2">VIEW</button>
+    <button type="view" class="option" value="Bill" name="action3">BILLS</button>
+  </div>
+</form>
+{% endblock %}

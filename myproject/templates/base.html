@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/home.css">
+    {{ bootstrap.load_css() }}
+    
+  </head>
+  <body onload="bodyload()">
+    <div class="nav">
+      <div class="nav_elements">
+        <ul class="nav_ul">
+          {% from 'bootstrap4/utils.html' import render_icon %}
+          <li class="nav_li"><a href="{{url_for('views.home')}}">Home</a></li>
+          <li class="nav_li"><a href="{{ url_for('views.guest')}}"><i class="nav_icons">{{ render_icon('activity',size='25px',title=None, desc=None) }}</i>Activity</a></li>
+          <li class="nav_li"><a href="{{ url_for('views.expenses')}}">Expenses</a></li>
+          <li class="nav_li"><a href="{{ url_for('views.loancalc')}}">Loan Calculator</a></li>
+          <li class="nav_li"><a href="{{url_for('views.home')}}#footer">About Us</a></li>
+          <li class="user nav_li"><a href="{{ url_for('views.login')}}"><i class="nav_icons">{{ render_icon('person-fill',size='25px',title=None, desc=None) }}</i></a></li>
+        </ul>
+      </div>
+    </div>
+    
+    {% block content %}{% endblock %}
+    {{ bootstrap.load_js() }}
+    <script src="../static/script.js">
+    </script>
+  </body>
+</html>

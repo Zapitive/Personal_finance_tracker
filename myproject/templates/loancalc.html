@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Guest{% endblock %}
+
+{% block content %}
+<div class="registration-form">
+  <div class="container">
+  <form class="registration">
+    <div class="form-group">
+        <input type="text" class="form-control item" id="Loan_amount" placeholder="Loan amount">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control item" id="Interest_rate" placeholder="Interest rate">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control item" id="Nomonths" placeholder="Number of months">
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-block create-account">Create Account</button>
+    </div>
+  </form>
+  </div>
+  </div>
+  
+{% endblock %}

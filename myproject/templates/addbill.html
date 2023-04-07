@@ -1,0 +1,40 @@
+{% extends "expenses.html" %}
+{% block content %}
+<div class="registration-form">
+    <div class="container">
+  <form method="POST" class="registration" action="{{url_for('views.bills')}}">
+    {{ bills.csrt_token}}
+  <table class="form">
+    <tr>
+      <td>{{ bills.billtype.label}}</td>
+      <td>{{bills.billtype}} {{bills.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ bills.billdue.label}}</td>
+    <td>{{bills.billdue}} {{bills.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>{{ bills.billamt.label}}</td>
+    <td>{{bills.billamt}} {{bills.hidden_tag()}}</td>
+  </tr>
+  <tr>
+    <td>
+    <p>
+        {{bills.submit()}}
+    </p>
+    </td>
+  </tr>
+  </table>
+  </form>
+  </div>
+  </div>
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+     {% for message in messages %}
+     <script>
+        alert("{{ message }}")
+      </script>
+      {% endfor %}
+     {% endif %}
+  {% endwith %}
+{% endblock %}

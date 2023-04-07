@@ -1,0 +1,56 @@
+{% extends "expenses.html" %}
+{% block content %}
+<h1 style="color:white"><span style ="color:rgb(165, 26, 26)">Expenses of</span> {{expenses[0][2]}}</h1>
+    <table>
+            
+        <tbody>
+            <th>Date</th>
+                <th>Category</th>
+                <th>Note</th>
+                <th>Currency</th>
+                <th>Amount</th>
+
+            {% for item in expenses %}
+            
+            <tr>
+                <td>{{item[4]}}</td>
+                <td>{{item[5]}}</td>
+                <td>{{item[6]}}</td>
+                <td >{{item[7]}}</td>
+                {% if item[3] == 'expense' %}
+                <td style='color:rgb(165, 26, 26) !important;'>- {{item[8]}}</td>
+                {% else %}
+                <td style='color:green !important;'>+ {{item[8]}}</td>
+                {% endif %}
+                <td>
+                    <form action="{{ url_for('views.edit')}}" method="POST">
+                        <button value="{{item[0]}}" name="action1" class="btn">edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ url_for('views.delete')}}" method="POST">
+                        <button value="{{item[0]}}" name="action1" class="btn">delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr style="border:3px solid black !important;">
+                <td colspan="3"></td>
+                <td style="font-weight: bolder; font-size: large; " >Total:</td>
+                <td style="font-weight: bolder; font-size: large; " >{{total}}</td>
+            </tr>
+            </tbody>
+    </table><br><br>
+    <a href="{{ url_for('views.user') }}">User page</a>
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for message in messages %}
+   <script>
+      alert("{{ message }}")
+         
+      
+    </script>
+    {% endfor %}
+   {% endif %}
+{% endwith %}
+{% endblock %}
