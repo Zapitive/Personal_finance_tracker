@@ -1,7 +1,7 @@
 {% extends "expenses.html" %}
 {% block content %}
-<h1 style="color:white"><span style ="color:rgb(165, 26, 26)">Expenses of</span> {{expenses[0][2]}}</h1>
-    <table>
+<h1 style="color:#A288A6; margin: 10px 33%;">Expenses of {{session['username']}}</h1>
+    <table class="viewext">
             
         <tbody>
             <th>Date</th>
@@ -41,7 +41,6 @@
             </tr>
             </tbody>
     </table><br><br>
-    <a href="{{ url_for('views.user') }}">User page</a>
     {% with messages = get_flashed_messages() %}
    {% if messages %}
    {% for message in messages %}

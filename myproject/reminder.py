@@ -1,13 +1,11 @@
-import arrow
 from datetime import datetime
 
-from celery import Celery
 from twilio.rest import Client
 from connectdb import *
 
 
 account_sid = "ACfcad04a9ee469e537d8e1f92b35858b5"
-auth_token = "ba7ebbf3401cc7df8ed940156ff242e9"
+auth_token = "3a1da56eff21b34898ccffec5f9197a6"
 twilio_number = "+15074172424"
 client = Client(account_sid, auth_token)
 

@@ -46,7 +46,7 @@ def expenses():
 def actions():
     form = expenseForm()
     bills = billForm()
-    if request.method == 'POST':
+    if request.method == 'POST' and session.get('username') != None:
         if request.form.get('action1') == 'Add':
             return render_template("addex.html",form=form)
         elif  request.form.get('action2') == 'View':
@@ -61,6 +61,9 @@ def actions():
             username, id = session['username'],session['id']
             addex(id,username,exp,date,category,note,cur,amt)
             return render_template("home.html")
+    else:
+        flash('Please Login')
+        return render_template('login.html')
         
 
 @views.route('/delete',methods=['POST','GET'])
@@ -149,3 +152,8 @@ def bills():
         message = 'Bill added'
         flash(message)
         return redirect(url_for('views.home'))
+    
+@views.route('logout')
+def logout():
+    session.clear()
+    return redirect(url_for('views.home'))

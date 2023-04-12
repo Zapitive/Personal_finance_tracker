@@ -18,12 +18,22 @@
           <li class="nav_li"><a href="{{ url_for('views.loancalc')}}">Loan Calculator</a></li>
           <li class="nav_li"><a href="{{url_for('views.home')}}#footer">About Us</a></li>
           <li class="user nav_li"><a href="{{ url_for('views.login')}}"><i class="nav_icons">{{ render_icon('person-fill',size='25px',title=None, desc=None) }}</i></a></li>
+          <li class="user nav_li"><a href="{{ url_for('views.logout')}}"><i class="nav_icons">{{ render_icon('box-arrow-left',size='25px',title=None, desc=None) }}</i></a></li>
         </ul>
       </div>
     </div>
     
     {% block content %}{% endblock %}
     {{ bootstrap.load_js() }}
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for message in messages %}
+   <script>
+      alert("{{ message }}")
+    </script>
+    {% endfor %}
+   {% endif %}
+{% endwith %}
     <script src="../static/script.js">
     </script>
   </body>

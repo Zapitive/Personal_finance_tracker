@@ -5,9 +5,9 @@ import mysql.connector
 def con():
 
     mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="password",
+    host="awseb-e-pmitpa3uv5-stack-awsebrdsdatabase-duuttamccnml.cp3iiv7x0jke.eu-north-1.rds.amazonaws.com",
+    user="Zapitive",
+    password="Yanarp11",
     database="pfinancetracker"
     )
     #mycursor = mydb.cursor()

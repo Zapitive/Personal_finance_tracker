@@ -5,7 +5,7 @@ mydb = con()
 mycursor = mydb.cursor()
 
 def loginf(email,psw):
-    sql = "SELECT * from userDetails WHERE Email=%s"
+    sql = "SELECT * from userdetails WHERE Email=%s"
     val = (email,)
     mycursor.execute(sql, val)
     data = mycursor.fetchall()

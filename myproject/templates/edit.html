@@ -1,6 +1,8 @@
 {% extends "expenses.html" %}
 {% block content %}
-<form method="POST">
+<div class="registration-form">
+  <div class="container">
+<form method="POST" class="registration">
     {{ form.csrt_token}}
   <table class="form">
     <tr>
@@ -36,4 +38,5 @@
   </tr>
   </table>
 </form>
+</div></div>
 {% endblock %}
